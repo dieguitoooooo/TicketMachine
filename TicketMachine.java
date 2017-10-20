@@ -19,15 +19,22 @@ public class TicketMachine
     private int total;
 
     /**
-     * Create a machine that issues tickets of the given price.
-     * Note that the price must be greater than zero, and there
-     * are no checks to ensure this.
+     * Aquí creamos el primer constructor
+     */
+    public TicketMachine()
+    {
+        price = 1000;
+        balance = 0;
+        total = 0;
+    }
+    
+    /**
+     * Construtor que permite crear maquinas cuyo precio del billete sea el
+     * que se indica en el parametro.
      */
     public TicketMachine(int cost)
     {
         price = cost;
-        balance = 0;
-        total = 0;
     }
 
     /**
@@ -75,4 +82,58 @@ public class TicketMachine
         // Clear the balance.
         balance = 0;
     }
+    
+    /**
+     * Este metodo simula el proceso de extraer todo el dinero que haya
+     * acumulado la maquina 
+     */
+    public void vaciarMaquina()
+    {
+        balance = 0;
+        total = 0;
+    }
+    
+    /**
+     * imprime por pantalla el precio del dinero
+     */
+    public void showPrice()
+    {
+        System.out.println("El precio del bllete es" + price + " cents.");
+    }
+    
+    public int getTotal()
+    {
+        return total;
+    }
+    
+    public void setPrice(int cost)
+    {
+        price = cost;
+    }
+    
+    /**
+     * Permite incrementar el precio del billete en 2 euros
+     */
+    public void subirPrecioEn2Euros()
+    {
+        price = price + 200;
+    }
+    
+    /**
+     * Reducir el precio del billete en la cantidad que se pasa como parametro
+     */
+    public void discount (int amount)
+    {
+        price = price - amount;
+    }
+    
+    /**
+     * Saca un mensaje por pantalla
+     */
+    public void prompt()
+    {
+        System.out.println("Inserta la cantidad correcta de dinero");
+    }
+    
+
 }
